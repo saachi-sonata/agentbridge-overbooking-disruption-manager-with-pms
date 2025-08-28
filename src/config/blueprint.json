@@ -1,0 +1,291 @@
+{
+  "id": "tpl-851169446",
+  "name": "Overbooking Disruption Manager with PMS",
+  "description": "Automatically re-assigns reviews, re-books PAX manifests, and coordinate actions across DCS to improve on-time performance.",
+  "industry": "Travel & Hospitality",
+  "pattern": "ReAct",
+  "complexity": "Intermediate",
+  "rating": 4.5,
+  "downloads": 40000,
+  "favorites": 6637,
+  "executionTime": "11min",
+  "tags": [
+    "ops",
+    "loyalty",
+    "react",
+    "travel"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Capacity Intake",
+      "description": "Collect and validate PNRs."
+    },
+    {
+      "id": "plan-0",
+      "name": "Plan",
+      "description": "Plan step aligned to ReAct pattern."
+    },
+    {
+      "id": "act-1",
+      "name": "Act",
+      "description": "Act step aligned to ReAct pattern."
+    },
+    {
+      "id": "forecasting-0",
+      "name": "Forecasting",
+      "description": "Forecasting with guardrails and observability."
+    },
+    {
+      "id": "reaccommodation-1",
+      "name": "Reaccommodation",
+      "description": "Reaccommodation with guardrails and observability."
+    },
+    {
+      "id": "recovery-2",
+      "name": "Recovery",
+      "description": "Recovery with guardrails and observability."
+    },
+    {
+      "id": "reassignment-3",
+      "name": "Reassignment",
+      "description": "Reassignment with guardrails and observability."
+    },
+    {
+      "id": "upsell-4",
+      "name": "Upsell",
+      "description": "Upsell with guardrails and observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Voucher Issuance",
+      "description": "Finalize outputs and governance logging in WFM."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Capacity Intake",
+        "description": "Collect and validate PNRs.",
+        "nodeType": "input",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "plan-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Plan",
+        "description": "Plan step aligned to ReAct pattern.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "act-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Act",
+        "description": "Act step aligned to ReAct pattern.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "forecasting-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Forecasting",
+        "description": "Forecasting with guardrails and observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "reaccommodation-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Reaccommodation",
+        "description": "Reaccommodation with guardrails and observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "recovery-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Recovery",
+        "description": "Recovery with guardrails and observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "reassignment-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Reassignment",
+        "description": "Reassignment with guardrails and observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "upsell-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "Upsell",
+        "description": "Upsell with guardrails and observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Voucher Issuance",
+        "description": "Finalize outputs and governance logging in WFM.",
+        "nodeType": "output",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2060,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "plan-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "plan-0",
+      "target": "act-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "act-1",
+      "target": "forecasting-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "forecasting-0",
+      "target": "reaccommodation-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "reaccommodation-1",
+      "target": "recovery-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "recovery-2",
+      "target": "reassignment-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "reassignment-3",
+      "target": "upsell-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-7",
+      "source": "upsell-4",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Capacity Intake → Plan → Act → Forecasting → Reaccommodation → Recovery → Reassignment → Upsell → Voucher Issuance",
+  "featured": false,
+  "createdAt": "2025-01-25T13:53:04.188Z",
+  "author": "AgentBridge Team",
+  "deployments": 4038,
+  "lastDeployed": "2025-08-21T06:20:45.940Z",
+  "configuration": {
+    "provider": "nvidia",
+    "region": "us-west-2",
+    "compute": "cpu-optimized"
+  },
+  "healthStatus": "healthy",
+  "deploymentCount": 2007,
+  "githubRepo": "https://github.com/agentbridge/overbooking-disruption-manager-with-pms",
+  "maintainer": "AgentBridge Team"
+}
